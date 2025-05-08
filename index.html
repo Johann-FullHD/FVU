@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="page.title">
+      Beschwerdestelle Gymnasium Dresden Klotzsche
+    </title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo">
+          <img src="logo.png" alt="Logo des Gymnasium Dresden Klotzsche" />
+          <h1 data-i18n="header.title">
+            Schule mit Courage - Schule ohne Rassismus
+          </h1>
+        </div>
+        <nav>
+          <ul>
+            <li>
+              <a href="index.html" class="active" data-i18n="nav.report"
+                >Vorfall melden</a
+              >
+            </li>
+            <li>
+              <a href="about.html" data-i18n="nav.about"
+                >Über die Beschwerdestelle</a
+              >
+              <a href="faq.html" data-i18n="nav.about"
+                >Fragen</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="intro">
+          <h2 data-i18n="intro.title">Vorfall melden</h2>
+          <p data-i18n="intro.description">
+            Auf dieser Plattform können Sie Vorfälle von Diskriminierung, Rassismus oder anderen besorgniserregenden Verhaltensweisen melden. Ihre Meldung kann anonym oder mit Angabe Ihrer Kontaktdaten erfolgen.
+          </p>
+          <p data-i18n="intro.confidentiality">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pulvinar platea eget arcu vestibulum massa natoque lacinia consequat tempus vivamus.
+          </p>
+        </section>
+
+        <section class="form-container">
+          <div class="progress-indicator">
+            <div class="step active" id="step-1-indicator">
+              <div class="step-number">1</div>
+              <div class="step-label" data-i18n="steps.type">
+                Berichtstyp
+              </div>
+            </div>
+            <div class="step" id="step-2-indicator">
+              <div class="step-number">2</div>
+              <div class="step-label" data-i18n="steps.details">
+                Details zum Vorfall
+              </div>
+            </div>
+            <div class="step" id="step-3-indicator">
+              <div class="step-number">3</div>
+              <div class="step-label" data-i18n="steps.contact">
+                Kontaktdaten
+              </div>
+            </div>
+            <div class="step" id="step-4-indicator">
+              <div class="step-number">4</div>
+              <div class="step-label" data-i18n="steps.review">
+                Überprüfen & absenden
+              </div>
+            </div>
+          </div>
+
+          <form id="report-form" enctype="multipart/form-data" id="complaint-form">
+            <!-- Step 1: Type of Report -->
+            <div class="form-step" id="step-1">
+              <h3 data-i18n="step1.title">
+                Welche Art von Vorfall möchten Sie melden?
+              </h3>
+              <div class="form-group">
+                <label for="incident-type" data-i18n="step1.incidentType"
+                  >Art des Vorfalls:</label
+                >
+                <select id="incident-type" name="incident-type" required>
+                  <option
+                    value=""
+                    selected
+                    disabled
+                    data-i18n="common.pleaseSelect"
+                  >
+                    Bitte auswählen...
+                  </option>
+                  <option value="racism" data-i18n="incidentTypes.racism">
+                    Rassismus
+                  </option>
+                  <option
+                    value="discrimination"
+                    data-i18n="incidentTypes.discrimination"
+                  >
+                    Diskriminierung
+                  </option>
+                  <option value="bullying" data-i18n="incidentTypes.bullying">
+                    Mobbing
+                  </option>
+                  <option
+                    value="harassment"
+                    data-i18n="incidentTypes.harassment"
+                  >
+                  Belästigung
+                  </option>
+                  <option value="other" data-i18n="incidentTypes.other">
+                    Anderes
+                  </option>
+                </select>
+              </div>
+
+              <div
+                class="form-group"
+                id="other-type-container"
+                style="display: none"
+              >
+                <label for="other-type" data-i18n="step1.specifyOther"
+                  >Bitte spezifizieren:</label
+                >
+                <input type="text" id="other-type" name="other-type" />
+              </div>
+
+              <div class="form-group">
+                <label for="recipient" data-i18n="step1.recipient"
+                  >Wer soll diesen Bericht erhalten?</label
+                >
+                <select id="recipient" name="recipient" required>
+                  <option
+                    value=""
+                    selected
+                    disabled
+                    data-i18n="common.pleaseSelect"
+                  >
+                    Bitte auswählen...
+                  </option>
+                  <option
+                    value="liaison-teacher"
+                    data-i18n="recipients.liaisonTeacher"
+                  >
+                  Vertrauenslehrer
+                  </option>
+                  <option
+                    value="school-counselor"
+                    data-i18n="recipients.schoolCounselor"
+                  >
+                    School Counselor
+                  </option>
+                  <option
+                    value="social-worker"
+                    data-i18n="recipients.socialWorker"
+                  >
+                    Schulsozialarbeiter
+                  </option>
+                  <option value="principal" data-i18n="recipients.principal">
+                    Schulleiter
+                  </option>
+                </select>
+              </div>
+
+              <div class="form-navigation">
+                <button type="button" class="btn next-btn" id="to-step-2">
+                  <span data-i18n="navigation.continue">Weiter</span>
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 2: Incident Details -->
+            <div class="form-step" id="step-2" style="display: none">
+              <h3 data-i18n="step2.title">Details zum Vorfall</h3>
+
+              <div class="form-group">
+                <label for="incident-date" data-i18n="step2.date"
+                  >Wann ist es passiert?</label
+                >
+                <input
+                  type="date"
+                  id="incident-date"
+                  name="incident-date"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="incident-location" data-i18n="step2.location"
+                  >Wo passierte es?</label
+                >
+                <input
+                  type="text"
+                  id="incident-location"
+                  name="incident-location"
+                  data-i18n="[placeholder]step2.locationPlaceholder"
+                  placeholder="z.b.: Schulhof, R011, Mensa, R222"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="incident-description" data-i18n="step2.description"
+                  >Bitte beschreiben Sie den Vorfall:</label
+                >
+                <textarea
+                  id="incident-description"
+                  name="incident-description"
+                  rows="6"
+                  required
+                  data-i18n="[placeholder]step2.descriptionPlaceholder"
+                  placeholder="Geben Sie so viele Details an, wie Sie mitteilen möchten …"
+                ></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="file-upload" data-i18n="step2.fileUpload"
+                  >Laden Sie alle relevanten Dateien hoch (optional):</label
+                >
+                <div class="file-upload-container">
+                  <input
+                    type="file"
+                    id="file-upload"
+                    name="file-upload[]"
+                    multiple
+                  />
+                  <div class="file-upload-button">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <span data-i18n="step2.chooseFiles">Dateien auswählen</span>
+                  </div>
+                  <div class="file-names"></div>
+                </div>
+                <p class="help-text" data-i18n="step2.fileHelp">
+                  Sie können Screenshots, Dokumente oder andere Beweise hochladen (max
+5 MB pro Datei, Formate: JPG, PNG, PDF)
+                </p>
+              </div>
+
+              <div class="form-navigation">
+                <button type="button" class="btn back-btn" id="back-to-1">
+                  <i class="fas fa-arrow-left"></i>
+                  <span data-i18n="navigation.back">Zurück</span>
+                </button>
+                <button type="button" class="btn next-btn" id="to-step-3">
+                  <span data-i18n="navigation.continue">Weiter</span>
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 3: Contact Information -->
+            <div class="form-step" id="step-3" style="display: none;">
+              <h3>Kontaktdaten</h3>
+              
+              <div class="form-group">
+                  <div class="toggle-container">
+                      <label class="toggle-label">Möchten Sie diese Meldung anonym übermitteln?</label>
+                      <div class="toggle-switch">
+                          <input type="checkbox" id="anonymous-toggle" name="anonymous">
+                          <label for="anonymous-toggle"></label>
+                      </div>
+                      <span id="toggle-status">Nein</span>
+                  </div>
+                  <p class="help-text">Wenn Sie sich dafür entscheiden, anonym zu bleiben, können wir Sie nicht direkt kontaktieren.</p>
+              </div>
+
+              <div id="contact-fields">
+                <div class="form-group">
+                  <label for="reporter-name" data-i18n="step3.name"
+                    >Your Name:</label
+                  >
+                  <input type="text" id="reporter-name" name="reporter-name" />
+                </div>
+
+                <div class="form-group">
+                  <label for="reporter-email" data-i18n="step3.email"
+                    >Ihre E-Mail:</label
+                  >
+                  <input
+                    type="email"
+                    id="reporter-email"
+                    name="reporter-email"
+                    placeholder="username@gykl.lernsax.de"
+                  />
+                  <p class="help-text" data-i18n="step3.emailHelp">
+                    Es muss eine gültige @gykl.lernsax.de E-Mail-Adresse sein
+                  </p>
+                </div>
+
+                <div class="form-group">
+                  <div class="checkbox-container">
+                    <input type="checkbox" id="send-copy" name="send-copy" />
+                    <label for="send-copy" data-i18n="step3.sendCopy"
+                      >Schicken Sie mir eine Kopie dieses Berichts</label
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-navigation">
+                <button type="button" class="btn back-btn" id="back-to-2">
+                  <i class="fas fa-arrow-left"></i>
+                  <span data-i18n="navigation.back">Zurück</span>
+                </button>
+                <button type="button" class="btn next-btn" id="to-step-4">
+                  <span data-i18n="navigation.review">Überprüfung</span>
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 4: Review & Submit -->
+            <div class="form-step" id="step-4" style="display: none">
+              <h3 data-i18n="step4.title">Überprüfen Sie Ihren Bericht</h3>
+
+              <div class="review-container">
+                <div class="review-section">
+                  <h4 data-i18n="step4.typeSection">Art des Berichts</h4>
+                  <p>
+                    <strong data-i18n="step4.incidentType"
+                      >Art des Vorfalls:</strong
+                    >
+                    <span id="review-incident-type"></span>
+                  </p>
+                  <p>
+                    <strong data-i18n="step4.recipient">Empfänger:</strong>
+                    <span id="review-recipient"></span>
+                  </p>
+                </div>
+
+                <div class="review-section">
+                  <h4 data-i18n="step4.detailsSection">Details zum Vorfall</h4>
+                  <p>
+                    <strong data-i18n="step4.date">Datum:</strong>
+                    <span id="review-incident-date"></span>
+                  </p>
+                  <p>
+                    <strong data-i18n="step4.location">Ort des Vorfalls:</strong>
+                    <span id="review-incident-location"></span>
+                  </p>
+                  <p>
+                    <strong data-i18n="step4.description">Beschreibung:</strong>
+                  </p>
+                  <div
+                    class="description-box"
+                    id="review-incident-description"
+                  ></div>
+                  <p>
+                    <strong data-i18n="step4.attachments">Anhänge:</strong>
+                    <span id="review-attachments"></span>
+                  </p>
+                </div>
+
+                <div class="review-section">
+                  <h4 data-i18n="step4.contactSection">Kontaktdaten</h4>
+                  <p>
+                    <strong data-i18n="step4.anonymous"
+                      >Anonyme Meldung:</strong
+                    >
+                    <span id="review-anonymous"></span>
+                  </p>
+                  <div id="review-contact-info">
+                    <p>
+                      <strong data-i18n="step4.name">Name:</strong>
+                      <span id="review-reporter-name"></span>
+                    </p>
+                    <p>
+                      <strong data-i18n="step4.email">E-Mail:</strong>
+                      <span id="review-reporter-email"></span>
+                    </p>
+                    <p>
+                      <strong data-i18n="step4.sendCopy">Kopie verschicken:</strong>
+                      <span id="review-send-copy"></span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="checkbox-container">
+                  <input
+                    type="checkbox"
+                    id="terms-agreement"
+                    name="terms-agreement"
+                    required
+                  />
+                  <label for="terms-agreement">
+                    <span data-i18n="step4.termsAgreement">Ich akzeptiere die</span>
+                    <a href="#" id="terms-link" data-i18n="step4.termsLink"
+                      >Geschäftsbedingungen</a
+                    >
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-navigation">
+                <button type="button" class="btn back-btn" id="back-to-3">
+                  <i class="fas fa-arrow-left"></i>
+                  <span data-i18n="navigation.back">Zurück</span>
+                </button>
+                <button type="submit" class="btn submit-btn">
+                  <span data-i18n="navigation.submit">Meldung einreichen</span>
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img src="logo.png" alt="Logo des Gymnasium Dresden Klotzsche" />
+            <p data-i18n="footer.slogan">
+              Gymnasium Dresden Klotzsche
+            </p>
+            <p data-i18n="footer.slogan">
+                Schule mit Courage - Schule ohne Rassismus
+              </p>
+          </div>
+
+          <div class="footer-links">
+            <h3 data-i18n="footer.quickLinks">Direktlinks</h3>
+            <ul>
+              <li>
+                <a href="index.html" data-i18n="nav.report"
+                  >Vorfall melden</a
+                >
+              </li>
+              <li>
+                <a href="about.html" data-i18n="nav.about"
+                  >Über die Beschwerdestelle</a
+                >
+              </li>
+              <li>
+                <a href="faq.html" data-i18n="footer.privacy"
+                  >Fragen</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-contact">
+            <h3 data-i18n="footer.contact">Kontakt</h3>
+            <p>
+              <i class="fas fa-map-marker-alt"></i>
+              <span data-i18n="footer.address"
+                >Karl-Marx-Straße 44, 01109 Dresden</span
+              >
+            </p>
+            <p><i class="fas fa-phone"></i> <span>+49 351 2078840</span></p>
+            <p>
+              <i class="fas fa-envelope"></i>
+              <span>info@gymnasium-klotzsche.de</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p data-i18n="footer.copyright">
+            © 2025 Gymnasium Dresden Klotzsche. Alle Rechte vorbehalten.
+          </p>
+          <p data-i18n="footer.analytics">
+            Diese Site verwendet anonyme Analysen, um die Benutzererfahrung zu verbessern.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Terms Modal -->
+    <div class="modal" id="terms-modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h3 data-i18n="modals.termsTitle">Geschäftsbedingungen</h3>
+        <div class="terms-content">
+          <p data-i18n="modals.termsIntro">
+            Durch die Nutzung dieser Meldeplattform erklären Sie sich mit den folgenden Bedingungen einverstanden:
+          </p>
+          <ol>
+            <li data-i18n="modals.terms1">
+              Alle Angaben müssen nach bestem Wissen und Gewissen wahrheitsgemäß und genau sein.
+            </li>
+            <li data-i18n="modals.terms2">
+              Die Schule behandelt Ihre Meldung vertraulich, muss jedoch bei schwerwiegenden Sicherheitsbedenken oder rechtlichen Anforderungen möglicherweise Informationen an die zuständigen Behörden weitergeben.
+            </li>
+            <li data-i18n="modals.terms3">
+              Wenn Sie Ihre Kontaktdaten angeben, werden diese ausschließlich zur Bearbeitung Ihrer Meldung verwendet.
+            </li>
+            <li data-i18n="modals.terms4">
+              Alle hochgeladenen Dateien dürfen nicht die Datenschutzrechte anderer verletzen
+sollten einen direkten Bezug zum gemeldeten Vorfall haben.
+            </li>
+            <li data-i18n="modals.terms5">
+              Die Schule behält sich das Recht vor, auf Grundlage der bereitgestellten Informationen geeignete Maßnahmen zu ergreifen.
+            </li>
+          </ol>
+        </div>
+        <button
+          id="accept-terms"
+          class="btn next-btn"
+          data-i18n="modals.acceptTerms"
+        >
+        Ich stimme zu
+        </button>
+      </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="success-modal">
+      <div class="modal-content">
+        <div class="success-icon">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <h3 data-i18n="modals.successTitle">Meldung wurde erfolgreich übermittlet</h3>
+        <p id="success-details"></p>
+        <p data-i18n="modals.successMessage">
+          Vielen Dank für ihren Bericht. Ihre Meldung wird vertraulich behandelt und an die zuständigen Stellen weitergeleitet.
+          <br />Wir werden uns umgehend darum kümmern.
+        </p>
+        <button
+          id="close-success"
+          class="btn next-btn"
+          data-i18n="modals.close"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+    <script src="js/app.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    </div>
+  </body>
+</html>
